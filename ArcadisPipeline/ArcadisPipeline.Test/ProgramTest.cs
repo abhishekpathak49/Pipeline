@@ -14,5 +14,11 @@ namespace ArcadisPipeline.Tests
         {
             Assert.IsTrue(new Program().IsAdultAge(19));
         }
+
+        [TestMethod]
+        public void IsAdultAgeTestFail()
+        {
+            Assert.IsTrue(new Program().IsAdultAge(15));
+        }
     }
 }
