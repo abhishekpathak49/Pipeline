@@ -23,5 +23,4 @@ jobs:
       run: dotnet build ./ArcadisPipeline --no-restore
     - name: Test
       run: 
-       dotnet restore ./ArcadisPipeline/ArcadisPipeline.Test.csproj
-            dotnet test ./ArcadisPipeline/ArcadisPipeline.Test.csproj --collect "XPlat Code Coverage" -r ./lcov --logger trx
+            dotnet test ./ArcadisPipeline/ArcadisPipeline.Test.csproj 
