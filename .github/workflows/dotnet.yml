@@ -28,3 +28,4 @@ jobs:
     - name: Test
       run:  dotnet test ${{ env.TEST_PROJECT_FILE }}
       working-directory: ${{ env.TEST_ROOT_PATH }}
+      continue-on-error: false
