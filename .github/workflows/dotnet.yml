@@ -23,4 +23,4 @@ jobs:
       run: dotnet build ./ArcadisPipeline --no-restore
     - name: Test
       run: 
-            dotnet test ./ArcadisPipeline/ArcadisPipeline.Test.csproj 
+            dotnet test ArcadisPipeline.Test.csproj 
