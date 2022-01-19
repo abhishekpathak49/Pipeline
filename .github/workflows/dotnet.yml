@@ -1,0 +1,30 @@
+name: .NET
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+env:
+  API_ROOT_PATH: './ArcadisPipeline'
+  TEST_ROOT_PATH: './ArcadisPipeline'
+  DOTNET_VERSION: '3.1.x'
+  TEST_PROJECT_FILE: 'ArcadisPipeline.Test'
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
+      uses: actions/setup-dotnet@v1
+      with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: Restore dependencies
+      run: dotnet restore ./ArcadisPipeline
+    - name: Build
+      run: dotnet build ./ArcadisPipeline --no-restore
+    - name: Test
+      run:  dotnet test ${{ env.TEST_PROJECT_FILE }}
+      working-directory: ${{ env.TEST_ROOT_PATH }}
