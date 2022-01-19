@@ -23,9 +23,11 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Restore dependencies
       run: dotnet restore ./ArcadisPipeline
-    - name: Build
-      run: dotnet build ./ArcadisPipeline --no-restore
+
     - name: Test
       run:  dotnet test ${{ env.TEST_PROJECT_FILE }}
       working-directory: ${{ env.TEST_ROOT_PATH }}
       continue-on-error: false
+      
+    - name: Build
+      run: dotnet build ./ArcadisPipeline --no-restore
