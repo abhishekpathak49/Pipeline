@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 env:
   API_ROOT_PATH: './ArcadisPipeline'
-  TEST_ROOT_PATH: './ArcadisPipeline.Test'
+  TEST_ROOT_PATH: './ArcadisPipeline'
   DOTNET_VERSION: '3.1.x'
   TEST_PROJECT_FILE: 'ArcadisPipeline.Test.csproj'
 jobs:
