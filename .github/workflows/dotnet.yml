@@ -5,7 +5,11 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
+env:
+  API_ROOT_PATH: './ArcadisPipeline'
+  TEST_ROOT_PATH: './ArcadisPipeline.Tests'
+  DOTNET_VERSION: '3.1.x'
+  TEST_PROJECT_FILE: 'ArcadisPipeline.Tests.csproj'
 jobs:
   build:
 
@@ -22,4 +26,5 @@ jobs:
     - name: Build
       run: dotnet build ./ArcadisPipeline --no-restore
     - name: Test
-      run: dotnet test
+      run:  dotnet test ${{ env.TEST_PROJECT_FILE }}
+      working-directory: ${{ env.TEST_ROOT_PATH }}
